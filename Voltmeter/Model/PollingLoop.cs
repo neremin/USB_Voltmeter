@@ -37,16 +37,16 @@ namespace Voltmeter.Model
             Contract.Requires<ArgumentNullException>(deviceStream != null);
             Contract.Requires<ArgumentNullException>(sampleParse != null);
             Contract.Requires<ArgumentNullException>(eventsQueue != null);
-            
+
+            Contract.Assert(dataRequest.RawBytes.Length <= deviceStream.MaxRequestSize);
+
             DeviceStream = deviceStream;
             EventsQueue = eventsQueue;
             Cancellation = new CancellationTokenSource();
             PollingInterval = pollingInterval;
             SampleParse = sampleParse;
             RequestBytes = new byte[DeviceStream.MaxRequestSize];
-
-            Contract.Assert(dataRequest.RawBytes.Length == DeviceStream.MaxRequestSize);
-
+            
             Array.Copy(dataRequest.RawBytes, RequestBytes, Math.Min(RequestBytes.Length, dataRequest.RawBytes.Length));
 
             LoopThread = new Thread(RunLoop)
