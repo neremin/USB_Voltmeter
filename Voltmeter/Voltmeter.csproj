@@ -122,6 +122,7 @@
     <Compile Include="Binding\IBinding.cs" />
     <Compile Include="Binding\IBindingManager.cs" />
     <Compile Include="Binding\BindingManager.cs" />
+    <Compile Include="Common\Extensions\ReflectionExtensions.cs" />
     <Compile Include="Common\Extensions\StaticReflectionExtensions.cs" />
     <Compile Include="Common\Extensions\XExtensions.cs" />
     <Compile Include="Common\HashCombiner.cs" />
