@@ -24,7 +24,7 @@ namespace Voltmeter.UI
         {
             get
             {
-                var attribute = Assembly.GetEntryAssembly().GetAttribute<AssemblyTitleAttribute>();
+                var attribute = Assembly.GetEntryAssembly().GetCustomAttribute<AssemblyTitleAttribute>();
                 if (attribute == null || string.IsNullOrWhiteSpace(attribute.Title))
                 {
                     return Path.GetFileNameWithoutExtension(Application.ExecutablePath);
@@ -45,7 +45,7 @@ namespace Voltmeter.UI
         {
             get
             {
-                var attribute = Assembly.GetEntryAssembly().GetAttribute<AssemblyProductAttribute>();
+                var attribute = Assembly.GetEntryAssembly().GetCustomAttribute<AssemblyProductAttribute>();
                 if (attribute == null)
                 {
                     return string.Empty;
@@ -58,7 +58,7 @@ namespace Voltmeter.UI
         {
             get
             {
-                var attribute = Assembly.GetEntryAssembly().GetAttribute<AssemblyCopyrightAttribute>();
+                var attribute = Assembly.GetEntryAssembly().GetCustomAttribute<AssemblyCopyrightAttribute>();
                 if (attribute == null)
                 {
                     return string.Empty;
